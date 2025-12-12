@@ -1,0 +1,539 @@
+<HTML><!-- InstanceBegin template="/Templates/plantilla.dwt" codeOutsideHTMLIsLocked="false" -->
+
+<HEAD>
+	<!-- InstanceBeginEditable name="doctitle" -->
+	<TITLE>Curso de C - Instalación y uso de DJGPP</TITLE>
+	<!-- InstanceEndEditable -->
+	<meta name="decription" content="Curso de C - Introducci�n">
+	<meta name="keywords" content="Programaci&oacute;n, Curso de C, C">
+	<META NAME="GENERATOR" CONTENT="Arachnophilia 3.5">
+	<META NAME="FORMATTER" CONTENT="Arachnophilia 3.5">
+	<meta name="author" content="Gorka Urrutia">
+	<meta name="DC.Creator" content="Gorka Urrutia">
+	<META name="robots" content="noindex, nofollow">
+	<link rel="stylesheet" href="cursoc.css">
+	<!-- InstanceBeginEditable name="head" -->
+
+
+	<!-- InstanceEndEditable -->
+</HEAD>
+
+<BODY>
+	<a name="arriba"></a>
+
+	<table width="100%" border="0">
+		<tr>
+			<td align="left"><img src="cursoc.gif" alt="Curso de C" border="0">
+			</td>
+			<td align="right"><a href="http://www.elrincondelc.com" target="_top"><img src="colibri.gif"
+						alt="El Rinc�n del C - www.elrincondelc.com" border="0"></a>
+			</td>
+		</tr>
+	</table>
+	<!-- InstanceBeginEditable name="Titulo" -->
+	<h1>Instalación y uso de DJGPP</h1>
+
+	<p class="barranavegaciontop">
+		<a href="cursoc-mat.html">[Anterior]</a>
+		<a href="cursoc-contrib.html">[Siguiente]</a>
+		<a href="index.html" target="_top">[Contenido]</a>
+		<a href="mailto:cursoc@elrincondelc.com" class="nombre">
+			-----------------------------------------------------------------------------------------------------------------
+			ISC. José Nicolas Jimenez Hernandez
+		</a>
+	</p>
+
+	<p align="center">Inicialmente este documento se basaba en el readme.1st de la versión 2.01.</p>
+
+	<p>Esta información corresponde a la versión 2.03 (la versión actual es la 2.03) del DJGPP. Consulta los ficheros
+		readme.1st en la página de <a href="http://www.elrincondelc.com/decas/index.html">DeCas</a> en caso de que la
+		información esté desfasada.</p>
+
+	<p>Encontrarás más documentación sobre DJGPP en la página del
+		<a href="http://www.elrinconddelc.com/decas/index.html">Proyecto DECAS</a>
+		(proyecto para la traducción del compilador DJGPP al Castellano, por favor colabora tú también).
+	</p>
+
+	<p>Si quieres estar a la última en DJGPP consulta la sección
+		<a href="http://www.elrincondelc.com/djgpp/djactual.html">DJGPP Actualizado</a>.
+	</p>
+
+	<p><b>Contenido:</b></p>
+
+	<ul class="texto">
+		<li>Instalación y primeros pasos en DJGPP:
+			<ul class="texto">
+				<li><a href="#conseguir" class="enlace">Dónde conseguir DJGPP</a></li>
+				<li><a href="#ficheros" class="enlace">Ficheros incluidos en la distribución</a></li>
+				<li><a href="#necesarios" class="enlace">Ficheros necesarios para empezar</a></li>
+				<li><a href="#instalar" class="enlace">Cómo instalar DJGPP (Instalación básica)</a></li>
+				<li><a href="#compilar" class="enlace">Creación de programas (Compilación)</a></li>
+				<li><a href="#depurar" class="enlace">Debugging (Depuración)</a></li>
+				<li><a href="#online" class="enlace">Documentación Online</a></li>
+				<li><a href="#compatv2" class="enlace">Compatibilidad con la versión 2.00</a></li>
+				<li><a href="#compatv1" class="enlace">Compatibilidad con la versión 1.x</a></li>
+			</ul>
+		</li>
+
+		<li class="texto">Instalación de librerías</li>
+
+		<li class="texto">Entorno de desarrollo
+			<ul class="texto">
+				<li><a href="#ide" class="enlace">Qué es un entorno de desarrollo (IDE)</a></li>
+				<li><a href="#rhide" class="enlace">Entorno RHIDE</a></li>
+			</ul>
+		</li>
+	</ul>
+
+	<P>
+	<p class="volver"><a href="#arriba">[Arriba]</a></p>
+	<A NAME="conseguir"></A>
+	<H2 CLASS="titulo2">D&oacute;nde conseguir DJGPP</H2>
+
+	<P><B><U>En Internet:</U></B>
+
+	<P>Puedes encontrar el DJGPP en:
+
+	<P><A HREF="http://www.delorie.com/djgpp/">http://www.delorie.com/djgpp/</A> (La página está en Inglés)
+
+	<P>Tienen un apartado en el que te indican qu&eacute; ficheros debes bajarte seg&uacute;n lo que quieras hacer (zip
+		picker). Por ejemplo, si s&oacute;lo quieres compilar programas de C, no necesitas los ficheros relacionados con
+		C++. Para saber lo que necesitas consulta más abajo el apartado 'Ficheros necesarios para empezar'.
+
+	<P>Una vez tengas los ficheros que necesitas debes ir al FTP de Rediris y bajartelos:
+
+	<P><A HREF="ftp://ftp.rediris.es/mirror/simtelnet/gnu/djgpp/">ftp://ftp.rediris.es/mirror/simtelnet/gnu/djgpp/</A>
+
+
+	<P><B><U>En CD-ROM:</U></B>
+
+	<P>Si tu conexión a Internet es muy lenta y dado que son muchos Megabytes los que hay que bajarse puedes encargar tu
+		CD-Rom DJGPP con la versión más actualizada por sólo 1.500 pts (US$10) <A HREF="djgpp-cd.html">aqui</A>.
+
+	<P>
+	<p class="volver"><a href="#arriba">[Arriba]</a></p>
+	<A NAME="ficheros"></A>
+	<H2 CLASS="titulo2">Ficheros incluidos en la distribuci&oacute;n</H2>
+
+	<P>Aquí tienes una lista detallada de los ficheros que forman parte de la distribución. Es una información
+		interesante, así te haces una idea de las herramientas que dispones. Desgraciadamente esta lista corresponde a
+		la versión 2.01 y la última es la 2.03.
+
+	<P>Los ficheros con una 'b' al final son los binarios (los que contienen los programas compilados) y los que tienen
+		una 's' son los c&oacute;digos fuente. Lo m&aacute;s seguro es que s&oacute;lo quieras los binarios.
+
+	<P><A HREF="djgpp-ficheros.txt">Ver lista de ficheros</A>
+
+	<P>
+	<p class="volver"><a href="#arriba">[Arriba]</a></p>
+	<A NAME="necesarios"></A>
+	<H2 CLASS="titulo2">Ficheros necesarios para empezar</H2>
+
+	<P>
+		<CENTER>
+			<TABLE width="80%" border=1>
+				<TR valign="top">
+					<TD>
+						Para compilar programas en C:
+					</TD>
+					<TD>
+						<B>djdev*.zip<BR>
+							gcc*b.zip<BR>
+							bnu*b.zip</B>
+					</TD>
+					<TD>
+						v2/<BR>
+						v2gnu/<BR>
+						v2gnu/
+					</TD>
+				</TR>
+				<TR>
+					<TD valign="top">
+						Si tambi&eacute;n quieres compilar C++:
+					</TD>
+					<TD>
+						<B>gpp*b.zip<BR>
+							lgp*.zip</B>
+					</TD>
+					<TD>
+						v2gnu/<BR>
+						v2gnu/
+					</TD>
+				</TR>
+				<TR>
+					<TD>
+						Para ver los manuales (ejecutar info):
+					</TD>
+					<TD>
+						<B>txi*b.zip</B>
+					</TD>
+					<TD>
+						v2gnu/
+					</TD>
+				</TR>
+				<TR>
+					<TD>
+						Entorno de desarrollo (Estilo Borland C, recomendado):
+					</TD>
+					<TD>
+						<B>rhide*b.zip</B>
+					</TD>
+					<TD>
+						v2gnu/
+					</TD>
+				</TR>
+				<TR>
+					<TD>
+						FAQ (lista de preguntas m�s frecuentes, recomendado):
+					</TD>
+					<TD>
+						<B>faq*b.zip</B>
+					</TD>
+					<TD>
+						v2/
+					</TD>
+				</TR>
+
+			</TABLE>
+		</CENTER>
+
+	<p>El asterisco indica el número de versión. Por ejemplo el fichero correspondiente a la versión 2.95.2 de gcc será
+		gcc2952b.zip. Conviene coger siempre los de número mayor, que indica la última versión. Aquí están las últimas
+		versiones de algunos ficheros:</p>
+
+	<ul class="texto">
+		<li>djdev*.zip - 2.03</li>
+		<li>gcc*b.zip - 2.95.2</li>
+		<li>txi*b.zip - @versiontexinfo;</li>
+	</ul>
+
+	<p>Es importante coger los que acaban en 'b' (binaries), que son los programas ya compilados. Si coges los que
+		tienen una 's' (source) tendrás que compilarlos tú mismo. Lo mejor es bajarse los ficheros binarios y no
+		complicarse la vida.</p>
+
+	<p>También puede resultar interesante bajarse <b>mak*b.zip</b> donde está el GNU Make. Algunos programas tienen
+		varios ficheros fuente y en vez de tener que compilarlos uno a uno se usa el programa make.</p>
+
+	<p>Si estás usando Windows, QDPMI, 386Max, NWDOS, OpenDOS, OS/2, Win/NT y Linux DOSEmu ya tienes todo lo
+		necesario para empezar. Si usas MS-DOS necesitarás un servidor DPMI. Si no sabes lo que es no te
+		preocupes, basta con tenerlo instalado. Para instalar un DPMI coge el fichero <b>csdpmi3b.zip</b>.</p>
+
+	<p>Es importante indicar que DJGPP es mucho más que estos ficheros, existen multitud de programas y herramientas que
+		facilitan mucho la vida del programador. Esto no es más que la instalación mínima (y muy mínima).</p>
+
+	<p>Para más información descárgate también el fichero <b>faq*b.zip</b> (la FAQ completa,
+		última versión @versionfaq;) y lee el capítulo 4.</p>
+
+	<p></p>
+
+	<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+	<a name="instalar"></a>
+	<h2 class="titulo2">Cómo instalar DJGPP (Instalación básica)</h2>
+
+	<p>Suponiendo que ya te has bajado todos los ficheros necesarios ahora vamos a proceder a la instalación.</p>
+
+	<p><b>1.-</b> Lo primero que se debe hacer es crear el directorio (o carpeta) donde instalaremos DJGPP. Podemos
+		instalar DJGPP en cualquier unidad de nuestro disco duro. Vamos a suponer que lo instalamos en C:\DJGPP (quizá
+		sea lo mejor para no complicarse). <b>Importante</b>: No lo instales en ninguna carpeta llamada DEV, ni c:\dev,
+		ni d:\dev, en ninguna unidad.</p>
+
+	<p>Si tienes la versión 1.x instalada, es mejor borrarla entera (mezclar programas v1.x con v2 puede dar
+		muchos problemas). El único programa v1.x que se debería conservar es el <b>go32.exe</b>.</p>
+
+	<p><b>2.-</b> Copia los ficheros que te has bajado al directorio (o carpeta) de instalación. En nuestro caso
+		C:\DJGPP.</p>
+
+	<p><b>3.-</b> Ahora tienes que descomprimir los ficheros que te has bajado. Para descomprimir puedes usar WinZip
+		(si tienes Win95/98/2000), puedes usar el programa pkunzip, o si no usar el unzip386 que viene con el DJGPP.</p>
+
+	<p>Si usas WinZip marca la casilla “use folder name” para que conserve la estructura de directorios. Descomprime los
+		zip en el directorio que has creado para la instalación (por ejemplo C:\DJGPP).</p>
+
+	<p>Si usas pkunzip o unzip386 debes entrar en el directorio de instalación. Ahora descomprime los ficheros zip en
+		ese directorio, conservando la estructura de directorios. Por ejemplo para el fichero djdev203.zip:</p>
+
+	<pre>
+pkunzip -d djdev203
+o:
+unzip386 djdev203
+</pre>
+
+	<p>Los ficheros comprimidos ya no son necesarios, han cumplido su misión; si quieres ahorrar espacio puedes
+		borrarlos. Recuerda siempre guardar una copia en disquetes o CD-ROM, nunca se sabe si tendrás que volver a
+		instalar.</p>
+
+	<p><b>4.-</b> Ahora tenemos que hacer cambios en el fichero AUTOEXEC.BAT. Este fichero se encuentra en C:\. Edítalo
+		y añade las líneas siguientes (esto vale si lo instalas en C:\DJGPP, si no, tienes que poner el directorio que
+		has elegido):</p>
+
+	<pre>
+set DJGPP=C:\DJGPP\DJGPP.ENV
+set PATH=C:\DJGPP\BIN;%PATH%
+</pre>
+
+	<p><b>5.-</b> Ahora deberías reiniciar el ordenador para que se activen los cambios hechos en el autoexec.bat
+		(es lo mejor) o teclear estas dos instrucciones en la línea de comandos en una sesión DOS (si eres
+		impaciente).</p>
+
+	<p><b>6.-</b> Una vez reiniciado ejecuta el programa <b>go32-v2.exe</b> sin argumentos (si estás en Windows
+		ejecútalo en una ventana DOS):</p>
+
+	<pre>
+go32-v2
+</pre>
+
+	<p>Debería decirte cuánta memoria DPMI y espacio de <i>swap</i> puede usar DJGPP en tu sistema.
+		Saldría algo parecido a esto:</p>
+
+	<pre>
+DPMI memory available: 8020 Kb
+DPMI swap space available: 39413 Kb
+</pre>
+
+	<p>(Los números que saldrán variarán dependiendo de la cantidad de memoria RAM instalada en tu
+		sistema, el espacio en disco disponible y el servidor DPMI). Si go32-v2 indica menos de 4 MBytes de memoria
+		DPMI,
+		lee la sección 3.8 de la FAQ. Si tienes más que esa memoria pero quieres el máximo
+		rendimiento de tu sistema, lee esa sección igualmente).</p>
+
+	<p>Pues ya está. Ya podemos meternos de lleno en el mundo de la programación en C con nuestro nuevo
+		compilador.</p>
+
+	<p></p>
+
+	<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+	<a name="compilar"></a>
+	<h2 class="titulo2">Creación de programas (Compilación)</h2>
+
+	<p>Vamos a ver primero cómo compilar un sencillo programa ('hola mundo' estará bien). Es interesante que entiendas
+		esto primero para saber cómo funciona el compilador. Luego puedes usar un <a href="#ide">IDE</a>, que es un
+		entorno de desarrollo (como por ejemplo Turbo Pascal o Borland C) para hacer el trabajo más cómodo. Existe uno
+		muy bueno para principiante (y para profesionales) llamado <a href="#rhide">Rhide</a>.</p>
+
+	<p>Para este ejemplo necesitas un editor de texto: el edit del DOS o el block de notas del Windows estarían bien.
+		Crea un fichero con el editor y copia el siguiente código:</p>
+
+	<pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    printf("Hola mundo\n");
+    return 0;
+}
+</pre>
+
+	<p>Llámalo myfile.c. Puedes guardarlo en el directorio que quieras, no tiene por qué estar dentro del directorio
+		DJGPP. Puedes guardarlo por ejemplo en un directorio llamado misprog (c:\misprog).</p>
+
+	<p>Ya tenemos el fichero fuente, ahora sólo hace falta compilarlo. Para compilar nuestro programa usamos el GCC.
+		Este es un compilador de <i>línea de comando</i>, al que tienes que llamar desde la línea de
+		comandos del DOS. Se encuentra en el subdirectorio 'bin' del directorio donde hemos instalado DJGPP.</p>
+
+	<p><u><b>Compilación de un programa C con un único fichero fuente</b></u></p>
+
+	<p>Vamos a compilar nuestro fichero fuente. Desde el directorio donde tenemos guardado myfile.c (por ejemplo
+		c:\misprog) tecleamos:</p>
+
+	<pre>
+gcc myfile.c -o myfile.exe
+</pre>
+
+	<p>Si todo va bien (debería hacerlo) aparecerá en ese directorio el programa myfile.exe listo para ser ejecutado.
+		Perfecto, ya tenemos nuestro primer programa.</p>
+
+	<p><u><b>Compilación de un programa C que usa alguna biblioteca (o librería)</b></u></p>
+
+	<p>Ahora vamos a suponer que nuestro programa usa la biblioteca (librería) 'lib/libm.a' (el anterior no la
+		usa). Para compilarlo haríamos:</p>
+
+	<pre>
+gcc myfile.c -o myfile.exe -lm
+</pre>
+
+	<P>La opci&oacute;n <B>-lm</B> enlaza con la librer&iacute;a 'lib/libm.a'. La opci&oacute;n -lm se pone al final.
+
+	<P><U><B>Compilar un programa con varios ficheros fuente</B></U>
+
+	<P><B>1.- Crear Ficheros objeto:</B>
+
+	<P>Para compilar un fichero de c&oacute;digo fuente de C o C++ y dejarlo como fichero objeto, usa la siguiente
+		l&iacute;nea de comando:
+
+	<PRE>
+	gcc -c -Wall myfile.c  (para c&oacute;digo fuente C)
+  o
+	gcc -c -Wall myfile.cc (para c&oacute;digo fuente C++)
+</PRE>
+
+	<P>Con esto obtienes el fichero <TT>myfile.o</TT>. La opci&oacute;n '-Wall' activa muchos mensajes de aviso
+		(warnings) que son especialmente &uacute;tiles para nuevos usuarios de GCC. Tambi&eacute;n se pueden usar otras
+		extensiones, comp .cpp (ver secci&oacute;n 8.4 de la FAQ).
+	<P>
+
+	<P><B>2.- Enlazar ficheros objeto</B>
+
+	<P>Para enlazar varios ficheros objeto en un programa ejecutable, usa algo parecido a esto:
+
+	<PRE>
+	gcc -o myprog.exe mymain.o mysub1.o mysub2.o
+</PRE>
+
+	<P>Con esto obtienes <TT>myprog.exe</TT> que ya puede ser ejecutado.
+
+	<P>Si en vez de un programa C, tenemos un programa C++, usa algo como esto:
+
+	<PRE>
+	gxx -o myprog.exe mymain.o mysub1.o mysub2.o
+</PRE>
+
+	<P><TT>gxx</TT> buscar&aacute; autom&aacute;ticamente las bibliotecas C++, de manera que no tienes que incluirlas en
+		la l&iacute;nea de comando.
+
+	<P><B>3.- Compilaci&oacute;n y enlazado en un solo paso</B>
+
+	<P>Puedes combinar los pasos de compilaci&oacute;n y enlazado de la siguiente manera:
+
+	<PRE>
+	gcc -Wall -o myprog.exe mymain.c mysub1.c mysub2.c
+</PRE>
+
+	<P>Puedes encontrar m&aacute;s informaci&oacute;n de las opciones de GCC en la documentaci&oacute;n on-line. Para
+		leerla instala el paquete <B>Texinfo</B> (txi390b.zip,ver la secci&oacute;n <A
+			HREF="#online">documentaci&oacute;n on-line</A>) y ejecuta:
+
+	<PRE>
+	info gcc invoking
+</PRE>
+
+	<P>
+	<p class="volver"><a href="#arriba">[Arriba]</a></p>
+	<A NAME="depurar"></A>
+	<H2 CLASS="titulo2">Debugging (Depuración)</H2>
+
+	<P>Para depurar un programa antes hay que compilar su c&oacute;digo fuente usando la opci&oacute;n '-g':
+
+	<PRE>
+	gcc -c -Wall -g mymain.c
+	gcc -c -Wall -g mysub1.c
+	gcc -c -Wall -g mysub2.c
+</PRE>
+
+	<P>y luego enlazarlo tambi&eacute;n con la opci&oacute;n '-g':
+
+	<PRE>
+	gcc -g -o myprog.exe mymain.o mysub1.o mysub2.o
+</PRE>
+
+
+	<P>Luego ejecuta tu programa con el debugger (depurador):
+
+	<PRE>
+	fsdb myprog.exe
+o
+	gdb myprog.exe
+o
+	edebug32 myprog.exe
+</PRE>
+
+	<P>(Tendr&aacute;s que conseguir el fichero <B>gdb416b.zip</B> si quieres depurar con GDB). FSDB funciona a pantalla
+		completa y tiene pantalla de ayuda a la que se accede pulsando F1. GDB viene con documentos 'Info' (ver
+		m&aacute;s abajo) que se pueden leer con info.exe. Edebug32 es un depurador poco usado; escribe h para obtener
+		ayuda.
+
+	<P>
+	<p class="volver"><a href="#arriba">[Arriba]</a></p>
+	<A NAME="online"></A>
+	<H2 CLASS="titulo2">Documentaci&oacute;n On-Line</H2>
+
+	<P>La documentación OnLine es aquella que se consulta directamente sobre el ordenador, que no está en papel.
+	<P>La mayor parte de la documentaci&oacute;n On-line est&aacute; organizada en un formato hipertexto especial usado
+		por el proyecto GNU. Cada paquete viene con su documentaci&oacute;n que son los ficheros con extensi&oacute;n
+		<B>.inf</B> (el Readme.1st dice .iNN) y que se descomprimen en el subdirectorio <B>info/</B> de tu directorio
+		DJGPP. Para hojear estos documentos, consigue el fichero <TT>txi390b.zip</TT>, y ejecuta info.exe. Si no sabes
+		c&oacute;mo usar Info, pulsa '?'.
+
+	<P>
+	<p class="volver"><a href="#arriba">[Arriba]</a></p>
+	<A NAME="compatv2"></A>
+	<H2 CLASS="titulo2">Compatibilidad con la versi&oacute;n 2.00</H2>
+
+	<P>Si te actualizas desde la versi&oacute;n 2.00 de DJGPP a la versi&oacute;n 2.01, deber&iacute;as reinstalar todos
+		los paquetes que utilices. Debido a los diferentes m&eacute;todos que usa V2.01 para manejar l&iacute;neas de
+		comando largas (y nombres de fichero largos bajo Win95), mezclar programas V2.00 con programas V2.01 puede hacer
+		muy dif&iacute;cil depurar problemas. Ver la secci&oacute;n 16.6 de la FAQ para m&aacute;s informaci&oacute;n.
+	<P>
+
+	<P>
+	<p class="volver"><a href="#arriba">[Arriba]</a></p>
+	<A NAME="compatv1"></A>
+	<H2 CLASS="titulo2">Compatibilidad con la versi&oacute;n 1.x</H2>
+
+	<P>Los binarios compilados bajo V1.x pueden usarse para aplicaciones para las cuales no hay versi&oacute;n V2. Los
+		programas V1 no pueden ejecutar programas V2 (pero s&iacute; al rev&eacute;s), as&iacute; que no intentes, por
+		ejemplo, usar Make v1.x para ejecutar el compilador v2.0.
+
+	<P>
+	<p class="volver"><a href="#arriba">[Arriba]</a></p>
+	<A NAME="ide"></A>
+	<H2 CLASS="titulo2">Entorno de desarrollo (IDE)</H2>
+
+	<P>Un entorno de desarrollo es un programa que se encarga de todas las fases del desarrollo: edición, generación de
+		makefiles, compilación y depuración.
+	<P>Edición: el programa debe servir como editor de textos y estar orientado a la programación.
+	<P>Generación de makefiles: cuando tenemos varios ficheros fuente es conveniente que el ide genere automáticamente
+		el makefile (el fichero que da instrucciones al compilador sobre lo que debe hacer).
+	<P>Compilación: el ide debe permitir compilar y ejecutar el programa que estamos desarrollando sin necesidad de
+		salir al DOS.
+	<P>Depuración: es conveniente que depure los programas y nos muestre los errores y warnings que se produzcan.
+	<P>El IDE no funciona sólo, necesita a los programas DJGPP, es tan sólo una herramienta que nos hace más facil
+		trabajar con todos los programas que hacen falta. Si te bajas sólo el IDE no funcionará nada.
+	<P>No es estrictamente necesario trabajar con un entorno de desarrollo, pero es muy conveniente (cómodo sobre todo).
+	<P>Actualmente, DJGPP no viene con un entorno de desarrollo integrado propio. Puedes usar cualquier editor que pueda
+		ejecutar programas DOS y examinar su salida, para que haga las veces de IDE. Mucha gente que trabaja con DJGPP
+		usa una versi&oacute;n DOS de GNU Emacs (est&aacute; disponible en el mismo sitio donde conseguiste DJGPP).
+		Emacs es un editor muy potente (tiene incorporado un lector Info, de forma que puedes leer la
+		documentaci&oacute;n DJGPP sin salir del editor), pero muchos otros editores libres pueden servir como IDE. La
+		&uacute;nica tarea que estos editores (inclu&iacute;do Emacs) no pueden realizar es ejecutar un debugger a
+		ventana completa.
+
+	<P>
+	<p class="volver"><a href="#arriba">[Arriba]</a></p>
+	<A NAME="rhide"></A>
+	<H2 CLASS="titulo2">Entorno RHIDE</H2>
+	<P>Si estás acostumbrado a entornos del estilo Borland C (para DOS) o Turbo C existe un IDE espec&iacute;fico para
+		DJGPP llamado RHIDE. Tiene auto-indentaci&oacute;n, llama autom&aacute;ticamente al compilador DJGPP, genera los
+		Makefiles autom&aacute;ticamente (lo que facilita la vida a los principiantes) y facilita el acceso a la
+		documentaci&oacute;n OnLine de DJGPP. Tambi&eacute;n incorpora la posibilidad de depurar (debug) programas. Dado
+		que RHIDE es muy reciente se est&aacute;n haciendo revisiones y arreglos todav&iacute;a. Sin embargo yo lo estoy
+		usando y no me ha dado ning&uacute;n problema.
+
+	<P>Puedes encontrarlo en la p�gina del DJGPP pero también en (Ultimas versiones de Rhide):
+
+	<P><A HREF="http://ieva05.lanet.lv/~pavenis/rhide.html">http://ieva05.lanet.lv/~pavenis/rhide.html</A>
+
+	<P><A HREF="http://www.tu-chemnitz.de/~sho/rho/rhide.html">http://www.tu-chemnitz.de/~sho/rho/rhide.html</A>
+
+	<P>Consigue el archivo <B>rhide*b.zip</B> e instálalo en tu directorio djgpp como se indica más arriba.
+
+	<P>Para ejecutarlo simplemente entra en tu directorio de programas (por ejemplo c:\misprog) y teclea rhide desde
+		DOS. Se abrirá el entorno de desarrollo. Para crear un programa entra en el menu 'File' -&gt; 'New'. Escribe el
+		código fuente de tu programa. Una vez que hayas acabado entra en el menu 'Run' -&gt; 'Run' o pulsa directamente
+		CTRL-F9 para compilar el programa.
+
+	<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+	<!-- FIN DEL CONTENIDO DE LA P�GINA -->
+	<!-- InstanceEndEditable -->
+	<p class="barranavegacionabajo"><!-- InstanceBeginEditable name="PieNavegacion" -->
+		<a href="cursoc-mat.html">[Anterior]</a> <a href="cursoc-contrib.html">[Siguiente]</a>
+		<a href="index.html" target="_top">[Contenido]</a>
+		<!-- InstanceEndEditable -->
+	</p>
+</BODY>
+
+<!-- InstanceEnd -->
+
+</HTML>

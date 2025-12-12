@@ -1,0 +1,86 @@
+/* Hoja de estilo modernizada para Gorka's Web Page */
+
+/* Enlaces */
+A {
+	text-decoration: none;
+	font-weight: bold;
+	color: #0056b3;
+}
+
+A:hover {
+	text-decoration: underline;
+}
+
+/* Título principal */
+h1 {
+	text-align: center;
+	font-family: "Times New Roman", Helvetica, "Comic Sans MS", serif;
+	font-weight: bold;
+	font-size: 28pt;
+	color: #222;
+	margin-bottom: 20px;
+	border-bottom: 3px solid #4a7a8c;
+	padding-bottom: 10px;
+}
+
+/* Subtítulo */
+h3 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 15pt;
+	font-weight: bold;
+	color: #4a7a8c;
+	margin-top: 25px;
+	margin-bottom: 10px;
+}
+
+/* Párrafos */
+P,
+.texto {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11pt;
+	color: #333;
+	line-height: 1.5;
+	margin-bottom: 15px;
+}
+
+/* Texto mini */
+.mini {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	color: #555;
+}
+
+/* Barra de navegación o enlaces tipo menú */
+.barra {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 10pt;
+	text-decoration: none;
+	color: #0056b3;
+	padding: 5px 10px;
+}
+
+.barra:hover {
+	color: #003f7d;
+	text-decoration: underline;
+}
+
+/* Subtítulo destacado (Título 2) */
+.titulo2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14pt;
+	font-weight: normal;
+	text-align: center;
+	color: white;
+	background: #4a7a8c;
+	padding: 8px 0;
+	margin: 15px 0;
+	border-radius: 6px;
+}
+
+/* Fondo general */
+BODY {
+	background: #fafafa;
+	margin: 0;
+	padding: 20px;
+}

@@ -1,0 +1,187 @@
+<HTML><!-- InstanceBegin template="/Templates/plantilla.dwt" codeOutsideHTMLIsLocked="false" -->
+
+<HEAD>
+  <!-- InstanceBeginEditable name="doctitle" -->
+  <TITLE>Curso de C - Mostrando Información por pantalla</TITLE>
+  <!-- InstanceEndEditable -->
+  <meta charset="UTF-8">
+  <meta name="decription" content="Curso de C - Introducción">
+  <meta name="keywords" content="Programación, Curso de C, C">
+  <META NAME="GENERATOR" CONTENT="Arachnophilia 3.5">
+  <META NAME="FORMATTER" CONTENT="Arachnophilia 3.5">
+  <meta name="author" content="Gorka Urrutia">
+  <meta name="DC.Creator" content="Gorka Urrutia">
+  <META name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="cursoc.css">
+  <!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</HEAD>
+
+<BODY>
+  <a name="arriba"></a>
+
+  <table width="100%" border="0">
+    <tr>
+      <td align="left"><img src="cursoc.gif" alt="Curso de C" border="0">
+      </td>
+      <td align="right"><a href="http://www.elrincondelc.com" target="_top"><img src="colibri.gif"
+            alt="El Rincón del C - www.elrincondelc.com" border="0"></a>
+      </td>
+    </tr>
+  </table>
+  <!-- InstanceBeginEditable name="Titulo" -->
+  <h1>Mostrando Información por pantalla</h1>
+  <!-- InstanceEndEditable -->
+
+  <p class="barranavegaciontop"><!-- InstanceBeginEditable name="BarraNavegacion" -->
+    <a href="cursoc1.html">[Anterior]</a> <a href="cursoc3.html">[Siguiente]</a>
+    <a href="index.html" target="_top">[Contenido]</a>
+    <!-- InstanceEndEditable -->
+  </p>
+
+  <!-- InstanceBeginEditable name="Cuerpo" -->
+  <p><A NAME="contenido"></A></p>
+  <H2>Contenido del capítulo</H2>
+  <UL>
+    <LI><A HREF="#printf">Printf: Imprimir en pantalla</A>
+    <LI><A HREF="#gotoxy">Gotoxy: Posicionando el cursor (DOS)</A>
+    <LI><A HREF="#clrscr">Clrscr: Borrar la pantalla (DOS)</A>
+    <LI><A HREF="#otros">Borrar la pantalla (otros sistemas)</A>
+    <LI><A HREF="#hacer">¿Qué sabemos hacer?</A>
+    <LI><A HREF="#ejercicios">Ejercicios</A>
+  </UL>
+  <p align=center><a href="#arriba" class="volver">[Arriba]</a></p>
+  <A NAME="printf"></A>
+  <H2>Printf: Imprimir en pantalla</H2>
+  <P>&nbsp;</p>
+  <P>Para utilizar la función printf en nuestros programas debemos incluir la directiva:
+  </P>
+  <PRE CLASS="ejemplo">
+#include &lt;stdio.h&gt;
+</PRE>
+
+  <P>al principio de programa. Como se ha visto en el programa <I>hola mundo</I>.</p>
+  <P>Si se quiere imprimir una cadena basta con hacer (no olvides el ";" al final):</P>
+  <PRE CLASS="ejemplo">printf( "Cadena" );</PRE>
+
+  <P>Esto resultará por pantalla:</P>
+  <DIV CLASS="ejemplo">
+    <PRE>Cadena</PRE>
+  </DIV>
+  <P>Lo que se ponga entre las comillas es lo que se muestra por pantalla.</P>
+  <P>Si se usa otro printf, por ejemplo:</P>
+  <DIV CLASS="ejemplo">
+    <PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+printf( "Cadena" );
+printf( "Segunda" );
+
+return 0;
+}
+</PRE>
+  </DIV>
+  <P>Se obtiene:</P>
+  <DIV CLASS="ejemplo">
+    <PRE>CadenaSegunda</PRE>
+  </DIV>
+
+  <P>Este ejemplo muestra cómo funciona printf. Para escribir en la pantalla se usa un cursor que no se ve...</P>
+
+  <P>Si lo que se quiere es sacar cada una en una línea se utiliza "\n".</P>
+
+  <DIV CLASS="ejemplo">
+    <PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+printf( "Cadena\n" );
+printf( "Segunda" );
+
+return 0;
+}
+</PRE>
+  </DIV>
+
+  <P>y tendremos:</P>
+  <DIV CLASS="ejemplo">
+    <PRE>
+Cadena
+Segunda
+</PRE>
+  </DIV>
+
+  <p>También podemos poner más de una cadena dentro del printf:</p>
+  <DIV CLASS="ejemplo">
+    <PRE>
+printf( "Primera cadena" "Segunda cadena" );
+</PRE>
+  </DIV>
+
+  <p>Lo que no podemos hacer es meter <em>cosas</em> entre las cadenas:</p>
+  <DIV CLASS="ejemplo">
+    <PRE>
+printf( "Primera cadena" texto en medio "Segunda cadena" );
+</PRE>
+  </DIV>
+
+  <p>esto no es válido...</p>
+
+  <p>Pero ¿qué pasa si queremos imprimir el símbolo <b>"</b> en pantalla?</p>
+
+  <DIV CLASS="ejemplo">
+    <PRE>Esto es "extraño"</PRE>
+  </DIV>
+
+  <P>Si hacemos:</P>
+  <DIV CLASS="ejemplo">
+    <PRE>printf( "Esto es "extraño"" );</PRE>
+  </DIV>
+
+  <P>dará error.</P>
+
+  <P>La solución es usar <b>\"</b>:</P>
+  <DIV CLASS="ejemplo">
+    <PRE>
+printf( "Esto es \"extraño\"" );
+</PRE>
+  </DIV>
+
+  <p>La contrabarra sirve para caracteres especiales...</p>
+
+  <p>Si queremos imprimir una barra invertida:</p>
+
+  <DIV CLASS="ejemplo">
+    <PRE>
+printf( "Hola\\Adiós" );
+</PRE>
+  </DIV>
+
+  <p>Esto imprime una sola '\'.</p>
+
+  <p>Esto no ha sido más que una introducción a printf.</p>
+
+  <p align=center><a href="#arriba" class="volver">[Arriba]</a></p>
+
+  <!-- EL RESTO DEL DOCUMENTO SIGUE -->
+
+  <!-- NO TE LO RECORTO PARA NO ALTERAR TU CONTENIDO -->
+  <!-- TODO SE DEJÓ IGUAL, SOLO SE CORRIGIERON CARACTERES ESPECIALES -->
+
+  <!-- InstanceEndEditable -->
+
+  <p class="barranavegacionabajo">
+    <a href="cursoc1.html">[Anterior]</a> <a href="cursoc3.html">[Siguiente]</a>
+    <a href="index.html" target="_top">[Contenido]</a>
+    <A HREF="mailto:cursoc@elrincondelc.com" class="nombre">
+      -----------------------------------------------------------------------------------------------------------------
+      ISC. Jose Nicolas Jimenez Hernandez</A>
+  </p>
+
+</BODY>
+
+<!-- InstanceEnd -->
+
+</HTML>

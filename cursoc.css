@@ -1,0 +1,154 @@
+/* Links */
+A {
+	font-family: "Verdana", "Comic Sans MS", sans-serif;
+	color: #0056b3;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+A:hover {
+	text-decoration: underline;
+}
+
+.nombre {
+	text-align: right;
+}
+
+/* Títulos */
+H1 {
+	font-family: "Verdana", Arial, Helvetica, sans-serif;
+	font-size: 22pt;
+	font-weight: bold;
+	color: #222;
+	border-bottom: 3px solid #4a7a8c;
+	padding-bottom: 8px;
+}
+
+H2 {
+	font-family: Arial, "Comic Sans MS", Helvetica, sans-serif;
+	font-size: 16pt;
+	font-weight: bold;
+	color: #4a7a8c;
+	padding: 12px;
+	margin: 25px 0;
+	background-color: #f0f7fa;
+	border-top: 2px solid #4a7a8c;
+	border-bottom: 2px solid #4a7a8c;
+	border-radius: 6px;
+}
+
+H3 {
+	font-family: "Verdana", "Comic Sans MS", Arial, sans-serif;
+	font-size: 13pt;
+	font-weight: bold;
+	text-decoration: underline;
+	text-align: justify;
+	color: #0056b3;
+}
+
+/* Texto general */
+P,
+.texto {
+	font-family: "Verdana", "Comic Sans MS", sans-serif;
+	font-size: 11pt;
+	margin-left: 10px;
+	color: #333;
+}
+
+.coment {
+	color: #0056b3;
+}
+
+/* Listas */
+UL {
+	font-family: "Verdana", "Comic Sans MS", sans-serif;
+	font-size: 11pt;
+}
+
+/* Formularios */
+FORM {
+	font-family: "Verdana", "Comic Sans MS", sans-serif;
+	font-size: 11pt;
+	text-align: justify;
+}
+
+/* Cajas visuales */
+.ejemplo {
+	border: 1px dashed #4a7a8c;
+	color: #333;
+	margin: 25px;
+	padding: 15px;
+	background-color: #f0f7fa;
+	border-radius: 6px;
+}
+
+.resultado {
+	border: 1px solid #4a7a8c;
+	margin: 10px;
+	padding: 10px;
+	background-color: #e3eef2;
+	border-radius: 4px;
+}
+
+.nota {
+	border: 1px solid #4a7a8c;
+	padding: 12px;
+	margin: 10px;
+	background-color: #fdfdfd;
+	border-radius: 5px;
+}
+
+/* Barras de navegación */
+.barranavegaciontop,
+.barranavegacionabajo {
+	font-size: 10pt;
+	padding: 5px;
+	color: #4a7a8c;
+}
+
+.barranavegacionabajo {
+	border-top: 1px solid #4a7a8c;
+}
+
+/* Otros estilos */
+.mini {
+	font-family: "Verdana", "Comic Sans MS";
+	font-size: 9pt;
+}
+
+.letraC {
+	font-family: "Comic Sans MS", Arial, Helvetica;
+	font-size: 13pt;
+	color: #0056b3;
+	font-weight: bold;
+}
+
+.comprobado {
+	color: #0056b3;
+	font-size: 9pt;
+}
+
+.volver {
+	font-family: "Verdana", "Comic Sans MS";
+	font-size: 9pt;
+	color: #0056b3;
+	text-decoration: none;
+	margin: 20px 0;
+	display: block;
+	text-align: center;
+}
+
+.volver:hover {
+	text-decoration: underline;
+}
+
+/* Body */
+BODY {
+	background: #fafafa;
+	margin-left: 30px;
+	margin-right: 20px;
+}
+
+.barranav {
+	color: #4a7a8c;
+}

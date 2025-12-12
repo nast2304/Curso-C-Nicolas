@@ -1,0 +1,318 @@
+<HTML><!-- InstanceBegin template="/Templates/plantilla.dwt" codeOutsideHTMLIsLocked="false" -->
+
+<HEAD>
+	<!-- InstanceBeginEditable name="doctitle" -->
+	<TITLE>Curso de C - Introducir datos por teclado</TITLE>
+	<!-- InstanceEndEditable -->
+	<meta name="description" content="Curso de C - Introducción">
+	<meta name="keywords" content="Programación, Curso de C, C">
+	<META NAME="GENERATOR" CONTENT="Arachnophilia 3.5">
+	<META NAME="FORMATTER" CONTENT="Arachnophilia 3.5">
+	<meta name="author" content="Gorka Urrutia">
+	<meta name="DC.Creator" content="Gorka Urrutia">
+	<META name="robots" content="noindex, nofollow">
+	<link rel="stylesheet" href="cursoc.css">
+	<!-- InstanceBeginEditable name="head" -->
+
+	<!-- InstanceEndEditable -->
+</HEAD>
+
+<BODY>
+	<a name="arriba"></a>
+
+	<table width="100%" border="0">
+		<tr>
+			<td align="left"><img src="cursoc.gif" alt="Curso de C" border="0">
+			</td>
+			<td align="right"><a href="http://www.elrincondelc.com" target="_top"><img src="colibri.gif"
+						alt="El Rincón del C - www.elrincondelc.com" border="0"></a>
+			</td>
+		</tr>
+	</table>
+	<!-- InstanceBeginEditable name="Titulo" -->
+	<h1>Introducir datos por teclado</h1><!-- InstanceEndEditable -->
+
+	<p class="barranavegaciontop"><!-- InstanceBeginEditable name="BarraNavegacion" -->
+		<a href="cursoc5.html">[Anterior]</a> <a href="cursoc7.html">[Siguiente]</a>
+		<a href="index.html" target="_top">[Contenido]</a>
+		<!-- InstanceEndEditable -->
+	</p>
+
+	<!-- InstanceBeginEditable name="Cuerpo" -->
+	<a name="arriba"></a>
+
+	<A NAME="contenido"></A>
+	<H2>
+		Contenido del capítulo
+	</H2>
+
+	<UL>
+		<LI><A HREF="#intro" CLASS="enlace">Introducción</A><BR>
+		<LI><A HREF="#scanf" CLASS="enlace">Scanf</A><BR>
+		<LI><A HREF="#getch" CLASS="enlace">Getch y getche</A><BR>
+		<LI><A HREF="#ejercicios" CLASS="enlace">Ejercicios</A><BR>
+	</UL>
+
+	<A NAME="intro"></A>
+	<H2>
+		Introducción
+	</H2>
+
+	<p>Algo muy usual en un programa es esperar que el usuario introduzca datos por el teclado.
+		Para ello contamos con varias posibilidades: usar las funciones de la biblioteca estándar, crear nuestras
+		propias interrupciones de teclado (MS-DOS) o usar funciones de alguna biblioteca diferente (como por ejemplo
+		Allegro).</p>
+
+	<p>Nosotros en este capítulo vamos a estudiar la primera, usando las funciones de la biblioteca estándar.
+		Pero veamos por encima las otras posibilidades.</p>
+
+	<p>Las funciones estándar están bien para un programa sencillito.
+		Pero cuando queremos hacer juegos, por ejemplo, no suelen ser suficientes.
+		Demasiado lentas o no nos dan todas las posibilidades que buscamos, como comprobar si hay varias teclas
+		pulsadas.
+		Para solucionar esto tenemos dos posibilidades:</p>
+
+	<p>La más complicada es crear nuestras propias interrupciones de teclado.
+		¿Qué es una interrupción de teclado?
+		Es un pequeño programa en memoria que se ejecuta continuamente y comprueba el estado del teclado.
+		Podemos crear uno nuestro y hacer que el ordenador use el que hemos creado en vez del suyo.
+		Este tema no lo vamos a tratar ahora, quizás en algún capítulo posterior.</p>
+
+	<p>Otra posibilidad más sencilla es usar una biblioteca que tenga funciones para controlar el teclado.
+		Por ejemplo, si usamos la biblioteca Allegro, ella misma hace todo el trabajo y nosotros no tenemos más que
+		recoger sus frutos con un par de sencillas instrucciones.
+		Esto soluciona mucho el trabajo y nos libra de tener que aprender cómo funcionan los aspectos más oscuros del
+		control del teclado.</p>
+
+	<p>Vamos ahora con las funciones de la biblioteca estándar.</p>
+
+	<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+	<A NAME="scanf"></A>
+	<H2>
+		Scanf
+	</H2>
+
+	<p>El uso de scanf es muy similar al de printf, con una diferencia: nos da la posibilidad de que el usuario
+		introduzca datos en vez de mostrarlos.
+		No nos permite mostrar texto en la pantalla, por eso si queremos mostrar un mensaje usamos un printf delante.
+		Un ejemplo:</p>
+
+	<DIV CLASS="ejemplo">
+		<PRE>
+#include &lt;stdio.h&gt;
+	
+int main()
+	{
+	int num;
+	printf( "Introduce un número " );
+	scanf( "%i", &num );
+	printf( "Has tecleado el número %i\n", num );
+	return 0;
+	}
+</PRE>
+	</DIV>
+
+	<p>Primero vamos a ver unas notas de estética, para hacer los programas un poco más elegantes.
+		Parece una tontería, pero los pequeños detalles hacen que un programa gane mucho.
+		El scanf no mueve el cursor de su posición actual, así que en nuestro ejemplo queda:</p>
+
+	<DIV CLASS="ejemplo">
+		<PRE>
+	Introduce un número <BLINK>_</BLINK> 	/* La barra horizontal indica dónde está el cursor */
+</PRE>
+	</DIV>
+
+	<p>Esto es porque en el printf no hemos puesto al final el símbolo de salto de línea '\n'.
+		Además hemos dejado un espacio al final de <I>Introduce un número:</I> para que así cuando tecleemos el número
+		no salga pegado al mensaje.
+		Si no hubiéramos dejado el espacio, quedaría así al introducir el número 120 (es un ejemplo):</p>
+
+	<DIV CLASS="ejemplo">
+		<PRE>
+	Introduce un número120
+</PRE>
+	</DIV>
+
+	<p>Bueno, esto es muy interesante, pero vamos a dejarlo y vamos al grano. Veamos cómo funciona el scanf.
+		Lo primero nos fijamos que hay una cadena entre comillas.
+		Esta es similar a la de printf, nos sirve para indicarle al compilador qué tipo de datos estamos pidiendo.
+		Como en este caso es un integer usamos %i.
+		Después de la coma tenemos la variable donde almacenamos el dato, en este caso 'num'.</p>
+
+	<p>Fíjate que en el scanf la variable 'num' lleva delante el símbolo <B>&</B>.
+		Este es muy importante, sirve para indicar al compilador cuál es la dirección (o posición en la memoria) de la
+		variable.
+		Por ahora no te preocupes por eso, ya volveremos más adelante sobre el tema.</p>
+
+	<p>Podemos preguntar por más de una variable a la vez en un sólo scanf, hay que poner un %i por cada variable:</p>
+
+	<DIV CLASS="ejemplo">
+		<PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+	int a, b, c;
+
+	printf( "Introduce tres números: " );
+	scanf( "%i %i %i", &a, &b, &c );
+	printf( "Has tecleado los números %i %i %i\n", a, b, c );
+	return 0;
+}
+</PRE>
+	</DIV>
+
+	<p>De esta forma, cuando el usuario ejecuta el programa debe introducir los tres datos separados por un espacio.</p>
+
+	<p>También podemos pedir en un mismo scanf variables de distinto tipo:</p>
+
+	<DIV CLASS="ejemplo">
+		<PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+	int a;
+	float b;
+
+	printf( "Introduce dos números: " );
+	scanf( "%i %f", &a, &b );
+
+	printf( "Has tecleado los números %i %f\n", a, b );
+	return 0;
+}
+</PRE>
+	</DIV>
+
+	<p>A cada modificador (%i, %f) le debe corresponder una variable de su mismo tipo.
+		Es decir, al poner un %i el compilador espera que su variable correspondiente sea de tipo int.
+		Si ponemos %f espera una variable tipo float.</p>
+
+	<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+	<A NAME="getch"></A>
+	<H2>
+		Getch y getche
+	</H2>
+
+	<p>Si lo que queremos es que el usuario introduzca un carácter por el teclado usamos las funciones <b>getch</b> y
+		<b>getche</b>.
+		Estas esperan a que el usuario introduzca un carácter por el teclado.
+		La diferencia entre getche y getch es que la primera muestra por pantalla la tecla que hemos pulsado y la
+		segunda no (la 'e' del final se refiere a <I>echo</I>=eco). Ejemplos:
+	</p>
+
+	<DIV CLASS="ejemplo">
+		<PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+	char letra;
+
+	printf( "Introduce una letra: " );
+	fflush( stdout );
+	letra = getche();
+	printf( "\nHas introducido la letra: %c", letra );
+	return 0;
+}
+</PRE>
+	</DIV>
+
+	<p>Resultado:</p>
+
+	<DIV CLASS="ejemplo">
+		<PRE>
+Introduce una letra: <B>a</B>
+Has introducido la letra: a
+</PRE>
+	</DIV>
+
+	<p>Quizás te estés preguntando qué es eso de <b>fflush(stdout)</b>.
+		Pues bien, cuando usamos la función printf, no escribimos directamente en la pantalla, sino en una memoria
+		intermedia (lo que llaman un búfer).
+		Cuando este búfer se llena o cuando metemos un carácter '\n', es cuando se envía el texto a la pantalla.
+		En este ejemplo, yo quería que apareciera el mensaje <I>Introduce una letra:</I> y el cursor se quedara justo
+		después, es decir, sin usar '\n'.
+		Si se hace esto, en algunos compiladores el mensaje no se muestra en pantalla hasta que se pulsa una tecla.
+		La función <b>fflush(stdout)</b> envía a la pantalla lo que hay en ese búfer.</p>
+
+	<p>Y ahora un ejemplo con getch:</p>
+
+	<DIV CLASS="ejemplo">
+		<PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+	char letra;
+
+	printf( "Introduce una letra: " );
+	fflush( stdout );
+	letra = getch();
+	printf("\nHas introducido la letra: %c", letra );
+	return 0;
+}
+</PRE>
+	</DIV>
+
+	<p>Resultado:</p>
+
+	<DIV CLASS="ejemplo">
+		<PRE>
+Introduce una letra:
+Has introducido la letra: a
+</PRE>
+	</DIV>
+
+	<p>Como vemos, la única diferencia es que en el primer ejemplo se muestra en pantalla lo que escribimos y en el
+		segundo no.</p>
+
+	<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+	<A NAME="ejercicios"></A>
+	<H2>
+		Ejercicios
+	</H2>
+
+	<p><strong>Ejercicio 1: </strong>Busca el error en el siguiente programa:</p>
+
+	<pre class="ejemplo"><code><font size=3 face="Courier New"><font color="#008000">#include &lt;stdio.h&gt;
+
+</font><b>int </b>main() {
+    <b>int </b>numero;
+
+    printf( <font color="#FF0000">&quot;Introduce un número: &quot;</font> );
+    scanf( <font color="#FF0000">&quot;%d&quot;</font>, numero );
+    printf( <font color="#FF0000">&quot;\nHas introducido el número %d.\n&quot;</font>, numero );
+    <b>return </b><font color="#800080">0</font>;
+}
+</font></code></pre>
+
+	<p><strong>Solución:</strong></p>
+
+	<p>A la variable número le falta el '&amp;', con lo que no estamos indicando al programa la dirección de la variable
+		y no obtendremos el resultado deseado.
+		Haz la prueba y verás que el mensaje "Has introducido el número X" no muestra el número que habías introducido.
+	</p>
+
+	<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+
+	<!-- InstanceEndEditable -->
+	<p class="barranavegacionabajo"><!-- InstanceBeginEditable name="PieNavegacion" -->
+		<a href="cursoc5.html">[Anterior]</a> <a href="cursoc7.html">[Siguiente]</a>
+		<a href="index.html" target="_top">[Contenido]</a>
+		<A HREF="mailto:cursoc@elrincondelc.com" class="nombre">
+			-----------------------------------------------------------------------------------------------------------------
+			ISC.
+			Jose Nicolas Jimenez Hernandez</A>
+		<!-- InstanceEndEditable -->
+	</p>
+
+</BODY>
+
+<!-- InstanceEnd -->
+
+</HTML>
